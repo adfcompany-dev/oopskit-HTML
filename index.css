@@ -1,0 +1,241 @@
+.navigation-wrapper {
+  display: contents;
+}
+ 
+.navigation-container1 {
+  display: contents;
+}
+ 
+.navigation-container2 {
+  display: none;
+}
+ 
+.navigation-container3 {
+  display: contents;
+}
+ 
+.navigation-navigation-toggle-icon {
+  color: var(--color-primary);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.navigation-navigation-toggle-menu {
+  opacity: 1;
+  position: absolute;
+  transform: rotate(0deg) scale(1);
+  transition: all var(--animation-duration-standard)
+      var(--animation-curve-primary);
+}
+ 
+.navigation-navigation-toggle-close {
+  opacity: 0;
+  position: absolute;
+  transform: rotate(180deg) scale(0);
+  transition: all var(--animation-duration-standard)
+      var(--animation-curve-primary);
+}
+ 
+.navigation-container4 {
+  display: none;
+}
+ 
+.navigation-container5 {
+  display: contents;
+}
+ 
+.navigation-container6 {
+  display: none;
+}
+ 
+.navigation-container7 {
+  display: contents;
+}
+
+.footer-wrapper {
+  display: contents;
+}
+ 
+.footer-container1 {
+  display: contents;
+}
+ 
+.footer-container2 {
+  display: none;
+}
+ 
+.footer-container3 {
+  display: contents;
+}
+ 
+.footer-footer-badge-icon1 {
+  color: var(--color-on-surface);
+  width: 28px;
+  height: 28px;
+}
+ 
+.footer-footer-badge-small1 {
+  color: var(--color-on-surface-secondary);
+  font-size: 10px;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+ 
+.footer-footer-badge-large1 {
+  color: var(--color-on-surface);
+  font-size: 16px;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.01em;
+}
+ 
+.footer-footer-badge-icon2 {
+  color: var(--color-on-surface);
+  width: 28px;
+  height: 28px;
+}
+ 
+.footer-footer-badge-small2 {
+  color: var(--color-on-surface-secondary);
+  font-size: 10px;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+ 
+.footer-footer-badge-large2 {
+  color: var(--color-on-surface);
+  font-size: 16px;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.01em;
+}
+ 
+.footer-footer-back-to-top-glow {
+  inset: 0;
+  opacity: 0;
+  z-index: 1;
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--color-primary) 20%, transparent),
+      transparent 70%
+    );
+  transition: opacity 0.3s var(--animation-curve-primary);
+}
+ 
+.footer-container4 {
+  display: none;
+}
+ 
+.footer-container5 {
+  display: contents;
+}
+ 
+.footer-container6 {
+  display: none;
+}
+ 
+.footer-container7 {
+  display: contents;
+}
+
+.home-container10 {
+  width: 100%;
+  display: block;
+  min-height: 100vh;
+}
+ 
+.home-container11 {
+  display: none;
+}
+ 
+.home-container12 {
+  display: contents;
+}
+ 
+.home-hero-title-accent {
+  color: var(--high-contrast-primary);
+  display: block;
+  position: relative;
+  margin-top: var(--spacing-sm);
+}
+ 
+.home-gallery-thumb-label1 {
+  color: var(--color-on-surface);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-medium);
+}
+ 
+.home-gallery-thumb-label2 {
+  color: var(--color-on-surface);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-medium);
+}
+ 
+.home-gallery-thumb-label3 {
+  color: var(--color-on-surface);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-medium);
+}
+ 
+.home-gallery-thumb-label4 {
+  color: var(--color-on-surface);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-medium);
+}
+ 
+.home-stat-card-progress-bar1 {
+  width: 0%;
+}
+ 
+.home-stat-card-progress-bar2 {
+  width: 0%;
+}
+ 
+.home-container13 {
+  display: none;
+}
+ 
+.home-container14 {
+  display: contents;
+}
+ 
+.home-container15 {
+  display: none;
+}
+ 
+.home-container16 {
+  display: contents;
+}
+ 
+.home-container17 {
+  display: none;
+}
+ 
+.home-container18 {
+  display: contents;
+}
+ 
+.home-container19 {
+  display: none;
+}
+ 
+.home-container20 {
+  display: contents;
+}
