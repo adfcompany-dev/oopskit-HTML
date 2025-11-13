@@ -123,11 +123,7 @@
   opacity: 0;
   z-index: 1;
   position: absolute;
-  background: radial-gradient(
-      circle at center,
-      color-mix(in srgb, var(--color-primary) 20%, transparent),
-      transparent 70%
-    );
+  background: color-mix(in srgb, var(--color-primary) 20%, transparent);
   transition: opacity 0.3s var(--animation-curve-primary);
 }
  
