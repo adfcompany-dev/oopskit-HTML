@@ -1,2281 +1,295 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>oopskit</title>
-    <meta property="og:title" content="oopskit" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
-
-    <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: "Noto Sans KR", Inter, sans-serif;
-        font-size: 1rem;
-      }
-
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: undefined;
-        text-transform: undefined;
-        letter-spacing: normal;
-        line-height: 1.55;
-        color: var(--color-on-surface);
-        background: var(--color-surface);
-
-        fill: var(--color-on-surface);
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/animate.css@4.1.1/animate.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
-    />
-  </head>
-  <body>
-    <link rel="stylesheet" href="./style.css" />
-    <div>
-      <link href="./index.css" rel="stylesheet" />
-
-      <div class="home-container10">
-        <navigation-wrapper class="navigation-wrapper">
-          <!--Navigation component-->
-          <div class="navigation-container1">
-            <div class="navigation-container2">
-              <div class="navigation-container3">
-                <style>
-                  @media (prefers-reduced-motion: reduce) {
-                  .navigation-wrapper, .navigation-link, .navigation-link-underline, .navigation-cta, .navigation-toggle, .navigation-overlay, .navigation-mobile-link {
-                    animation: none !important;
-                    transition: none !important;
-                  }
-                  }
-                </style>
-              </div>
+nㄴ<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OopsKit - 시간을 역산하는 준비 관리 앱</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navigation-wrapper">
+        <div class="navigation-container">
+            <a href="#" class="navigation-logo">OopsKit</a>
+            <div class="navigation-links">
+                <a href="#features" class="navigation-link">Features</a>
+                <a href="#download" class="navigation-link">Download</a>
+                <a href="#support" class="navigation-link">Support</a>
             </div>
-            <nav
-              id="navigation"
-              role="navigation"
-              aria-label="메인 내비게이션"
-              class="navigation-wrapper"
-            >
-              <div class="navigation-container">
-                <a href="#">
-                  <div aria-label="OopsKit 홈페이지" class="navigation-logo">
-                    <div class="navigation-logo-icon">
-                      <div class="navigation-logo-glow"></div>
-                      <span class="navigation-logo-text">Oops</span>
-                      <span class="navigation-logo-accent">Kit</span>
-                    </div>
-                  </div>
-                </a>
-                <div id="navLinks" class="navigation-links">
-                  <a href="#features">
-                    <div class="navigation-link">
-                      <span class="navigation-link-text">주요 기능</span>
-                      <span class="navigation-link-underline"></span>
-                    </div>
-                  </a>
-                  <a href="#how-it-works">
-                    <div class="navigation-link">
-                      <span class="navigation-link-text">작동 방식</span>
-                      <span class="navigation-link-underline"></span>
-                    </div>
-                  </a>
-                  <a href="#testimonials">
-                    <div class="navigation-link">
-                      <span class="navigation-link-text">사용자 후기</span>
-                      <span class="navigation-link-underline"></span>
-                    </div>
-                  </a>
-                  <a href="#faq">
-                    <div class="navigation-link">
-                      <span class="navigation-link-text">자주 묻는 질문</span>
-                      <span class="navigation-link-underline"></span>
-                    </div>
-                  </a>
-                </div>
-                <div class="navigation-actions">
-                  <a
-                    href="https://apps.apple.com/kr/app/oopskit/id6752884289"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    <div
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      class="navigation-cta"
-                    >
-                      <span class="navigation-cta-icon">
-                        <svg
-                          width="18"
-                          xmlns="http://www.w3.org/2000/svg"
-                          height="18"
-                          viewBox="0 0 24 24"
-                        >
-                          <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path
-                              d="M12 15V3m9 12v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
-                            ></path>
-                            <path d="m7 10l5 5l5-5"></path>
-                          </g>
-                        </svg>
-                      </span>
-                      <span class="navigation-cta-text">앱 다운로드</span>
-                      <span class="navigation-cta-glow"></span>
-                    </div>
-                  </a>
-                </div>
-                <button
-                  id="navToggle"
-                  aria-label="메뉴 열기"
-                  aria-controls="navLinks"
-                  aria-expanded="false"
-                  class="navigation-toggle"
-                >
-                  <span class="navigation-navigation-toggle-icon">
-                    <svg
-                      width="24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      class="navigation-navigation-toggle-menu"
-                    >
-                      <path
-                        d="M4 5h16M4 12h16M4 19h16"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path></svg
-                    ><svg
-                      width="24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      class="navigation-navigation-toggle-close"
-                    >
-                      <path
-                        d="M18 6L6 18M6 6l12 12"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </svg>
-                  </span>
-                </button>
-              </div>
-              <div id="navOverlay" class="navigation-overlay">
-                <div class="navigation-mobile">
-                  <a href="#features">
-                    <div class="navigation-mobile-link">
-                      <span class="navigation-mobile-number">01</span>
-                      <span class="navigation-mobile-text">주요 기능</span>
-                    </div>
-                  </a>
-                  <a href="#how-it-works">
-                    <div class="navigation-mobile-link">
-                      <span class="navigation-mobile-number">02</span>
-                      <span class="navigation-mobile-text">작동 방식</span>
-                    </div>
-                  </a>
-                  <a href="#testimonials">
-                    <div class="navigation-mobile-link">
-                      <span class="navigation-mobile-number">03</span>
-                      <span class="navigation-mobile-text">사용자 후기</span>
-                    </div>
-                  </a>
-                  <a href="#faq">
-                    <div class="navigation-mobile-link">
-                      <span class="navigation-mobile-number">04</span>
-                      <span class="navigation-mobile-text">자주 묻는 질문</span>
-                    </div>
-                  </a>
-                  <div class="navigation-mobile-cta">
-                    <a
-                      href="https://apps.apple.com/kr/app/oopskit/id6752884289"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      <div
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        class="btn btn-lg btn-primary"
-                      >
-                        <span>앱 다운로드</span>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </nav>
-            <div class="navigation-container4">
-              <div class="navigation-container5">
-                <style>
-                  /* Animation keyframes removed for static design */
-                </style>
-              </div>
-            </div>
-            <div class="navigation-container6">
-              <div class="navigation-container7">
-                <script defer="" data-name="navigation">
-                  document.addEventListener('DOMContentLoaded', function() {
-                    (function(){
-                      const navToggle = document.getElementById("navToggle")
-                      const navOverlay = document.getElementById("navOverlay")
-                      const navLinks = document.querySelectorAll(".navigation-mobile-link")
-
-                      if (navToggle && navOverlay) {
-                        navToggle.addEventListener("click", () => {
-                          const isExpanded = navToggle.getAttribute("aria-expanded") === "true"
-                          navToggle.setAttribute("aria-expanded", !isExpanded)
-                          navOverlay.classList.toggle("navigation-active")
-                          document.body.style.overflow = !isExpanded ? "hidden" : ""
-                        })
-
-                        // Close mobile menu when clicking a link
-                        navLinks.forEach((link) => {
-                          link.addEventListener("click", () => {
-                            navToggle.setAttribute("aria-expanded", "false")
-                            navOverlay.classList.remove("navigation-active")
-                            document.body.style.overflow = ""
-                          })
-                        })
-
-                        // Close mobile menu when clicking overlay
-                        navOverlay.addEventListener("click", (e) => {
-                          if (e.target === navOverlay) {
-                            navToggle.setAttribute("aria-expanded", "false")
-                            navOverlay.classList.remove("navigation-active")
-                            document.body.style.overflow = ""
-                          }
-                        })
-                      }
-
-                      // Add scroll effect to navigation
-                      let lastScroll = 0
-                      const nav = document.getElementById("navigation")
-
-                      if (nav) {
-                        window.addEventListener("scroll", () => {
-                          const currentScroll = window.pageYOffset
-
-                          if (currentScroll > 100) {
-                            nav.style.boxShadow =
-                              "0 4px 24px color-mix(in srgb, var(--color-surface) 80%, transparent)"
-                          } else {
-                            nav.style.boxShadow = "none"
-                          }
-
-                          lastScroll = currentScroll
-                        })
-                      }
-                    })()
-                  });
-                </script>
-              </div>
-            </div>
-          </div>
-        </navigation-wrapper>
-        <div class="home-container11">
-          <div class="home-container12">
-            <style>
-              @media (prefers-reduced-motion: reduce) {
-              .phone-screen, .phone-glow, .hero-cta, .store-badge {
-                animation: none;
-                transition: none;
-              }
-              }
-              @media (prefers-reduced-motion: reduce) {
-              .problem-card, .problem-callout {
-                animation: none;
-                transition: none;
-              }
-              }
-              @media (prefers-reduced-motion: reduce) {
-              .how-step, .how-demo-progress-bar {
-                animation: none;
-                transition: none;
-              }
-              }
-              @media (prefers-reduced-motion: reduce) {
-              .feature-row, .feature-device {
-                animation: none;
-                transition: none;
-              }
-              }
-              @media (prefers-reduced-motion: reduce) {
-              .gallery-thumb, .gallery-phone-frame img {
-                transition: none;
-              }
-              }
-              @media (prefers-reduced-motion: reduce) {
-              .testimonial-card {
-                animation: none;
-                transition: none;
-              }
-              }
-              @media (prefers-reduced-motion: reduce) {
-              .stat-card-progress-bar {
-                transition: none;
-              }
-              }
-            </style>
-          </div>
+            <button class="navigation-toggle" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
-        <section
-          id="hero-section"
-          role="banner"
-          aria-labelledby="hero-heading"
-          class="hero-section"
-        >
-          <div class="hero-video-container">
-            <video
-              src="https://videos.pexels.com/video-files/3163534/3163534-hd_1280_720_30fps.mp4"
-              loop="true"
-              muted="true"
-              autoplay="true"
-              aria-hidden="true"
-              playsinline="true"
-              class="hero-video"
-            ></video>
-            <div class="hero-video-overlay"></div>
-          </div>
-          <div class="hero">
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero">
             <div class="hero-content">
-              <div class="hero-logo-wrapper">
-                <div class="hero-logo"><span>OopsKit</span></div>
-              </div>
-              <div class="hero-headline-wrapper">
-                <h1 id="hero-heading" class="hero-title home-hero-title">
-                  <span>시간을 역산하는</span>
-                  <br />
-                  <span class="home-hero-title-accent">준비 관리 앱</span>
-                </h1>
-              </div>
-              <p class="hero-promise">
-                도착 시각만 알려주세요. OopsKit이 준비 시작 시간을 역산해 즉시
-                알려드립니다.
-              </p>
-              <div
-                role="form"
-                aria-label="Quick arrival time demo"
-                class="hero-demo-area"
-              >
-                <input
-                  type="time"
-                  id="arrival-time-input"
-                  value="13:30"
-                  aria-label="Arrival time"
-                  class="hero-time-input"
-                />
-                <button
-                  aria-label="Calculate preparation time"
-                  class="btn btn-lg hero-cta btn-primary"
-                >
-                  <svg
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <rect x="4" y="2" rx="2" width="16" height="20"></rect>
-                      <path
-                        d="M8 6h8m0 8v4m0-8h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"
-                      ></path>
-                    </g>
-                  </svg>
-                  <span>시작 시간 계산</span>
-                </button>
-              </div>
-              <div class="hero-store-badges">
-                <a
-                  href="https://apps.apple.com/kr/app/oopskit/id6752884289"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <div
-                    rel="noopener"
-                    target="_blank"
-                    aria-label="Download on App Store"
-                    class="store-badge"
-                  >
-                    <svg
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <g
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path
-                          d="M12 15V3m9 12v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
-                        ></path>
-                        <path d="m7 10l5 5l5-5"></path>
-                      </g>
-                    </svg>
-                    <span>iOS 다운로드</span>
-                  </div>
-                </a>
-                <a
-                  href="https://apps.apple.com/kr/app/oopskit/id6752884289"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <div
-                    rel="noopener"
-                    target="_blank"
-                    aria-label="Download on Android"
-                    class="store-badge"
-                  >
-                    <svg
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <g
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path
-                          d="M12 15V3m9 12v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
-                        ></path>
-                        <path d="m7 10l5 5l5-5"></path>
-                      </g>
-                    </svg>
-                    <span>Android 다운로드</span>
-                  </div>
-                </a>
-              </div>
+                <h1 class="hero-title">시간을 역산하는 준비 관리</h1>
+                <p class="hero-promise">
+                    도착 시각만 알려주세요. OopsKit이 준비 시작 시간을 역산해드립니다.
+                </p>
+                <div class="hero-store-badges">
+                    <a href="https://apps.apple.com/kr/app/oopskit/id6752884289" target="_blank" class="store-badge">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                        </svg>
+                        <span>iOS</span>
+                    </a>
+                    <a href="#" target="_blank" class="store-badge">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+                        </svg>
+                        <span>Android</span>
+                    </a>
+                </div>
             </div>
             <div class="hero-visual">
-              <div class="phone-mockup">
-                <div class="phone-screen">
-                  <img
-                    alt="OopsKit app interface showing time calculation"
-                    src="https://images.pexels.com/photos/6823602/pexels-photo-6823602.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                    loading="eager"
-                  />
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <img src="https://images.pexels.com/photos/6373086/pexels-photo-6373086.jpeg?auto=compress&cs=tinysrgb&w=1500" alt="OopsKit App Interface">
+                    </div>
                 </div>
-                <div class="phone-glow"></div>
-              </div>
             </div>
-          </div>
-        </section>
-        <section
-          id="problem-section"
-          role="region"
-          aria-labelledby="problem-heading"
-          class="problem-section"
-        >
-          <div class="problem-container">
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="problem-container">
             <div class="problem-header">
-              <h2 id="problem-heading" class="section-title">
-                이런 경험 있으신가요?
-              </h2>
-              <p class="section-subtitle">
-                매일 아침 준비는 분명 계획대로였는데, 출발 직전엔 늘
-                허둥지둥하나요?
-              </p>
+                <h2 class="section-title">이런 경험 있으신가요?</h2>
+                <p class="section-subtitle">
+                    매일 아침 준비는 분명 계획대로였는데, 출발 직전엔 늘 허둥지둥하나요?
+                </p>
             </div>
             <div class="problem-cards-grid">
-              <article class="problem-card">
-                <div class="problem-card-icon">
-                  <svg
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M12 6v6l4 2"></path>
-                      <circle r="10" cx="12" cy="12"></circle>
-                    </g>
-                  </svg>
-                </div>
-                <h3 class="problem-card-title">시간 감각 흐트러짐</h3>
-                <p class="problem-card-body">
-                  준비에 걸리는 시간이 일정하지 않아 약속 시간에 맞출 수 없나요?
-                  준비와 이동 시간을 따로 계산하느라 스트레스가 쌓입니다.
-                </p>
-                <span class="problem-card-label">반복되는 지각</span>
-              </article>
-              <article class="problem-card">
-                <div class="problem-card-icon">
-                  <svg
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M9.615 20H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8m-3 5l2 2l4-4M9 8h4m-4 4h2"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </div>
-                <h3 class="problem-card-title">루틴 관리의 어려움</h3>
-                <p class="problem-card-body">
-                  작은 단계 하나라도 놓치면 하루가 꼬인다고 느끼시나요? 복잡한
-                  루틴을 머릿속으로 관리하려다 보면 중요한 항목이 누락되기
-                  쉽습니다.
-                </p>
-                <span class="problem-card-label">집중력 저하</span>
-              </article>
-              <article class="problem-card">
-                <div class="problem-card-icon">
-                  <svg
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path
-                        d="M12 18V5m3 8a4.17 4.17 0 0 1-3-4a4.17 4.17 0 0 1-3 4m8.598-6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"
-                      ></path>
-                      <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"></path>
-                      <path d="M18 18a4 4 0 0 0 2-7.464"></path>
-                      <path
-                        d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"
-                      ></path>
-                      <path d="M6 18a4 4 0 0 1-2-7.464"></path>
-                      <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"></path>
-                    </g>
-                  </svg>
-                </div>
-                <h3 class="problem-card-title">ADHD 특성에 맞는 도구 부재</h3>
-                <p class="problem-card-body">
-                  시간 감각이 흐트러지고, 어떤 일부터 먼저 해야 할지 막막해지며
-                  중요한 물건을 빼먹곤 합니다.
-                </p>
-                <span class="problem-card-label">불안과 스트레스</span>
-              </article>
-            </div>
-            <div class="problem-callout">
-              <div class="problem-callout-content">
-                <svg
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                </svg>
-                <div class="problem-callout-text">
-                  <h3>OopsKit이 필요합니다</h3>
-                  <p>
-                    첨단 역산 계산으로 도착 시각만 입력하면, 실내 준비 시간과
-                    이동 시간까지 고려한 맞춤 준비 시작 시간을 자동으로 제시해
-                    드립니다.
-                  </p>
-                </div>
-              </div>
-              <button aria-label="Try interactive demo" class="btn btn-primary">
-                체험하기
-              </button>
-            </div>
-          </div>
-        </section>
-        <section
-          id="how-it-works-section"
-          role="region"
-          aria-labelledby="how-heading"
-          class="how-it-works-section"
-        >
-          <div class="how-it-works-container">
-            <div class="how-steps-column">
-              <h2 id="how-heading" class="section-title">작동 방식</h2>
-              <ol class="how-steps-list">
-                <li class="how-step">
-                  <span class="how-step-number">01</span>
-                  <div class="how-step-content">
-                    <h3>도착 시각 입력</h3>
-                    <p>약속 시간 또는 도착 예정 시간을 선택하세요.</p>
-                    <span class="how-step-time">오후 1:30</span>
-                  </div>
-                </li>
-                <li class="how-step">
-                  <span class="how-step-number">02</span>
-                  <div class="how-step-content">
-                    <h3>자동 계획 생성</h3>
-                    <p>
-                      실내 준비 시간과 이동 시간을 역산해 단계별 타임라인을 즉시
-                      만듭니다.
-                    </p>
-                    <span class="how-step-time">10:45 시작</span>
-                  </div>
-                </li>
-                <li class="how-step">
-                  <span class="how-step-number">03</span>
-                  <div class="how-step-content">
-                    <h3>실시간 진행 안내</h3>
-                    <p>
-                      지금 해야 할 작업을 한눈에 표시하고, 단계별 알림으로
-                      놓치는 일을 줄입니다.
-                    </p>
-                    <span class="how-step-time">실시간</span>
-                  </div>
-                </li>
-              </ol>
-            </div>
-            <div
-              role="region"
-              aria-label="Interactive demo of arrival workflow"
-              class="how-demo-column"
-            >
-              <div class="how-demo-container">
-                <div data-state="input" class="how-demo-state">
-                  <div class="how-demo-screen">
-                    <div class="demo-time-display"><span>13:30</span></div>
-                    <div class="demo-label"><span>도착 시각</span></div>
-                  </div>
-                </div>
-                <div class="how-demo-progress">
-                  <div class="how-demo-progress-bar"></div>
-                </div>
-              </div>
-            </div>
-            <div class="how-trust-column">
-              <div class="how-trust-card">
-                <div class="how-trust-icon">
-                  <svg
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </div>
-                <h3>정밀함 × 친절함</h3>
-                <p>
-                  의료적 신뢰를 고려한 예측 정확도와, ADHD 사용자에 맞춘 명확한
-                  지시로 스트레스를 낮춥니다.
-                </p>
-                <button
-                  aria-label="Start demo experience"
-                  class="btn btn-accent"
-                >
-                  체험해보세요
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section
-          id="features-section"
-          role="region"
-          aria-labelledby="features-heading"
-          class="features-section"
-        >
-          <div class="features-container">
-            <h2 id="features-heading" class="section-title">핵심 기능</h2>
-            <article class="feature-row">
-              <div class="feature-visual">
-                <div class="feature-device">
-                  <img
-                    alt="Timeline interface showing reverse calculation"
-                    src="https://images.pexels.com/photos/8217475/pexels-photo-8217475.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <div class="feature-content">
-                <div class="feature-icon">
-                  <svg
-                    width="40"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M12 6v6l4 2"></path>
-                      <circle r="10" cx="12" cy="12"></circle>
-                    </g>
-                  </svg>
-                </div>
-                <h3 class="feature-title">역산 타임라인</h3>
-                <p class="feature-description">
-                  도착 시각을 입력하면 역으로 계산한 준비 시작 시간과 단계별
-                  타임라인을 즉시 생성합니다. 실내 준비 시간과 이동 시간을 모두
-                  반영해 병원 예약·진료·약 복용 같은 일정에도 정확히 맞춥니다.
-                </p>
-              </div>
-            </article>
-            <article class="feature-row-reverse feature-row">
-              <div class="feature-visual">
-                <div class="feature-device">
-                  <img
-                    alt="Custom routine builder interface"
-                    src="https://images.pexels.com/photos/9558775/pexels-photo-9558775.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <div class="feature-content">
-                <div class="feature-icon">
-                  <svg
-                    width="40"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M9.615 20H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8m-3 5l2 2l4-4M9 8h4m-4 4h2"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </div>
-                <h3 class="feature-title">맞춤형 루틴</h3>
-                <p class="feature-description">
-                  사용자의 반복 패턴을 학습해 장소와 상황별 맞춤 루틴을 자동
-                  추천합니다. '병원 가기', '출근 준비' 등 자주 쓰는 준비세트를
-                  저장해 원터치로 불러올 수 있습니다.
-                </p>
-              </div>
-            </article>
-            <article class="feature-row">
-              <div class="feature-visual">
-                <div class="feature-device">
-                  <img
-                    alt="Smart notification and real-time guidance interface"
-                    src="https://images.pexels.com/photos/9558226/pexels-photo-9558226.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <div class="feature-content">
-                <div class="feature-icon">
-                  <svg
-                    width="40"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M10.268 21a2 2 0 0 0 3.464 0m-10.47-5.674A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </div>
-                <h3 class="feature-title">스마트 알림 &amp; 실시간 가이드</h3>
-                <p class="feature-description">
-                  각 단계별로 언제 무엇을 해야 하는지 음성·진동·배너로 직관적
-                  안내. ADHD 사용자를 배려한 간결한 문장과 시각 신호로 집중을
-                  돕고 무너진 흐름을 곧장 복구합니다.
-                </p>
-              </div>
-            </article>
-            <article class="feature-row-reverse feature-row">
-              <div class="feature-visual">
-                <div class="feature-device">
-                  <img
-                    alt="Success statistics and feedback dashboard"
-                    src="https://images.pexels.com/photos/5077051/pexels-photo-5077051.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <div class="feature-content">
-                <div class="feature-icon">
-                  <svg
-                    width="40"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
-                      <path d="m19 9l-5 5l-4-4l-3 3"></path>
-                    </g>
-                  </svg>
-                </div>
-                <h3 class="feature-title">성공 통계 &amp; 피드백</h3>
-                <p class="feature-description">
-                  도착 성공률, 평균 준비시간, 단계별 소요 데이터를 시각화해
-                  제공합니다. 개인별 통계를 바탕으로 개선 제안을 받고 목표
-                  달성률을 꾸준히 향상시킬 수 있습니다.
-                </p>
-              </div>
-            </article>
-          </div>
-        </section>
-        <section
-          id="gallery-section"
-          role="region"
-          aria-labelledby="gallery-heading"
-          class="gallery-section"
-        >
-          <div class="gallery-container">
-            <h2 id="gallery-heading" class="section-title">
-              OopsKit을 직접 만나보세요
-            </h2>
-            <p class="section-subtitle">미래형 준비관리 인터랙티브 갤러리</p>
-            <div class="gallery-split">
-              <div class="gallery-mock-column">
-                <div
-                  tabindex="0"
-                  aria-label="Interactive demo preview"
-                  class="gallery-phone-mock"
-                >
-                  <div class="gallery-phone-frame">
-                    <img
-                      id="gallery-main-screen"
-                      alt="Main app screen"
-                      src="https://images.pexels.com/photos/6373086/pexels-photo-6373086.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="gallery-phone-glow"></div>
-                </div>
-                <div class="gallery-cta-footer">
-                  <p>화면 우측 하단의 QR 및 스토어 배지로 즉시 설치 가능</p>
-                  <a
-                    href="https://apps.apple.com/kr/app/oopskit/id6752884289"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    <div rel="noopener" target="_blank" class="btn btn-primary">
-                      <span>지금 체험하기</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="gallery-carousel-column">
-                <div class="gallery-thumbnails">
-                  <button
-                    aria-label="View main screen"
-                    data-screen="main"
-                    class="gallery-thumb active"
-                  >
-                    <img
-                      alt="Main screen thumbnail"
-                      src="https://images.pexels.com/photos/6373086/pexels-photo-6373086.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                      loading="lazy"
-                    />
-                    <span class="home-gallery-thumb-label1">메인</span>
-                  </button>
-                  <button
-                    aria-label="View timeline screen"
-                    data-screen="timeline"
-                    class="gallery-thumb"
-                  >
-                    <img
-                      alt="Timeline screen thumbnail"
-                      src="https://images.pexels.com/photos/8217475/pexels-photo-8217475.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                      loading="lazy"
-                    />
-                    <span class="home-gallery-thumb-label2">타임라인</span>
-                  </button>
-                  <button
-                    aria-label="View alerts screen"
-                    data-screen="alerts"
-                    class="gallery-thumb"
-                  >
-                    <img
-                      alt="Alerts screen thumbnail"
-                      src="https://images.pexels.com/photos/9558775/pexels-photo-9558775.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                      loading="lazy"
-                    />
-                    <span class="home-gallery-thumb-label3">알림</span>
-                  </button>
-                  <button
-                    aria-label="View stats screen"
-                    data-screen="stats"
-                    class="gallery-thumb"
-                  >
-                    <img
-                      alt="Stats screen thumbnail"
-                      src="https://images.pexels.com/photos/9558226/pexels-photo-9558226.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                      loading="lazy"
-                    />
-                    <span class="home-gallery-thumb-label4">통계</span>
-                  </button>
-                </div>
-                <div class="gallery-info">
-                  <h3>앱 체험 팁</h3>
-                  <p>
-                    타임라인 모드에서 이동 시간과 실내 준비 시간을 조절하면
-                    OopsKit이 개인화된 루틴을 즉시 재계산합니다.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section
-          id="testimonials-section"
-          role="region"
-          aria-labelledby="testimonials-heading"
-          class="testimonials-section"
-        >
-          <div class="testimonials-container">
-            <div class="testimonials-header">
-              <div class="testimonials-header-left">
-                <h2 id="testimonials-heading" class="section-title">
-                  실제 사용자의 목소리
-                </h2>
-                <p class="testimonials-subtitle">신뢰로 검증된 결과</p>
-              </div>
-              <div class="testimonials-header-right">
-                <div class="testimonials-rating">
-                  <span class="testimonials-rating-number">4.8</span>
-                  <div class="testimonials-stars">
-                    <svg
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                        fill="currentColor"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path></svg
-                    ><svg
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                        fill="currentColor"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path></svg
-                    ><svg
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                        fill="currentColor"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path></svg
-                    ><svg
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                        fill="currentColor"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path></svg
-                    ><svg
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                        fill="currentColor"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="testimonials-cards-primary">
-              <article class="testimonial-card">
-                <div class="testimonial-stars">
-                  <svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </div>
-                <blockquote class="testimonial-quote">
-                  "ADHD 증상 때문에 매일 아침 전쟁이었는데, OopsKit 덕분에
-                  약속시간 95% 제시간 도착합니다. 준비 단계가 자동으로 표시되니
-                  놓치는 일이 줄었어요."
-                </blockquote>
-                <cite class="testimonial-attribution">익명, 30대</cite>
-              </article>
-              <article class="testimonial-card">
-                <div class="testimonial-stars">
-                  <svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </div>
-                <blockquote class="testimonial-quote">
-                  "의사 약속, 면접, 등교까지. 도착 시각만 입력하면 준비 시작
-                  시간을 정확히 알려줘서 불안감이 확 줄었습니다. 기술이 일상을
-                  편안하게 바꿨다는 걸 느꼈어요."
-                </blockquote>
-                <cite class="testimonial-attribution">익명, 20대</cite>
-              </article>
-              <article class="testimonial-card">
-                <div class="testimonial-stars">
-                  <svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path></svg
-                  ><svg
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </div>
-                <blockquote class="testimonial-quote">
-                  "매일 허둥대던 아침에서 여유 있는 출발로 바뀌었습니다. 기술이
-                  곧 치료적 지지처럼 느껴져요."
-                </blockquote>
-                <cite class="testimonial-attribution">익명, 30대</cite>
-              </article>
-            </div>
-            <div class="testimonials-cta">
-              <button
-                aria-label="View more testimonials"
-                class="btn btn-outline"
-              >
-                리뷰 더보기
-              </button>
-            </div>
-          </div>
-        </section>
-        <section
-          id="stats-section"
-          role="region"
-          aria-labelledby="stats-heading"
-          class="stats-section"
-        >
-          <div class="stats-container">
-            <h2 id="stats-heading" class="section-title">
-              성과로 증명된 시간 혁신
-            </h2>
-            <div class="stats-grid">
-              <div class="stats-featured">
-                <article
-                  role="group"
-                  aria-labelledby="stat-users"
-                  class="stat-large"
-                >
-                  <div class="stat-icon">
-                    <svg
-                      width="48"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="48"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <g
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path
-                          d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"
-                        ></path>
-                        <circle r="4" cx="9" cy="7"></circle>
-                      </g>
-                    </svg>
-                  </div>
-                  <div class="stat-content">
-                    <span id="stat-users" data-target="1234" class="stat-value">
-                      0
-                    </span>
-                    <span class="stat-label">활성 사용자</span>
-                  </div>
-                </article>
-                <article
-                  role="group"
-                  aria-labelledby="stat-success"
-                  class="stat-medium"
-                >
-                  <div class="stat-icon">
-                    <svg
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="32"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <g
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <circle r="10" cx="12" cy="12"></circle>
-                        <circle r="6" cx="12" cy="12"></circle>
-                        <circle r="2" cx="12" cy="12"></circle>
-                      </g>
-                    </svg>
-                  </div>
-                  <div class="stat-content">
-                    <span id="stat-success" data-target="78" class="stat-value">
-                      0
-                    </span>
-                    <span class="stat-unit">%</span>
-                    <span class="stat-label">평균 제시간 도착률</span>
-                  </div>
-                </article>
-                <article
-                  role="group"
-                  aria-labelledby="stat-satisfaction"
-                  class="stat-medium"
-                >
-                  <div class="stat-icon">
-                    <svg
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="32"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div class="stat-content">
-                    <span
-                      id="stat-satisfaction"
-                      data-target="95"
-                      class="stat-value"
-                    >
-                      0
-                    </span>
-                    <span class="stat-unit">%</span>
-                    <span class="stat-label">사용자 만족도</span>
-                  </div>
-                </article>
-              </div>
-              <div class="stats-context">
-                <div class="stats-context-card">
-                  <h3>실시간 카운트업</h3>
-                  <p>
-                    OopsKit은 데이터 기반의 개인화로 지각 위험을 줄이고 일상의
-                    스트레스를 낮춥니다.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="stats-secondary-grid">
-              <article
-                role="group"
-                aria-labelledby="stat-prep-time"
-                class="stat-card"
-              >
-                <div class="stat-card-icon">
-                  <svg
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M12 6v6l4 2"></path>
-                      <circle r="10" cx="12" cy="12"></circle>
-                    </g>
-                  </svg>
-                </div>
-                <span
-                  id="stat-prep-time"
-                  data-target="12"
-                  class="stat-card-value"
-                >
-                  0
-                </span>
-                <span class="stat-card-unit">분</span>
-                <span class="stat-card-label">평균 준비 시간 단축</span>
-                <div class="stat-card-progress">
-                  <div
-                    data-target="75"
-                    class="home-stat-card-progress-bar1 stat-card-progress-bar"
-                  ></div>
-                </div>
-              </article>
-              <article
-                role="group"
-                aria-labelledby="stat-rating"
-                class="stat-card"
-              >
-                <div class="stat-card-icon">
-                  <svg
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </div>
-                <span id="stat-rating" class="stat-card-value">4.8</span>
-                <span class="stat-card-unit">/5.0</span>
-                <span class="stat-card-label">앱스토어 평점</span>
-                <div class="stat-card-progress">
-                  <div
-                    data-target="96"
-                    class="home-stat-card-progress-bar2 stat-card-progress-bar"
-                  ></div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-        <div class="home-container13">
-          <div class="home-container14">
-            <style>
-              /* Animation keyframes removed for static design */
-            </style>
-          </div>
-        </div>
-        <div class="home-container15">
-          <div class="home-container16">
-            <script defer="" data-name="gallery-interaction">
-              document.addEventListener('DOMContentLoaded', function() {
-                (function(){
-                  // Gallery thumbnail interaction
-                  const galleryThumbs = document.querySelectorAll(".gallery-thumb")
-                  const mainScreen = document.getElementById("gallery-main-screen")
-
-                  if (galleryThumbs && mainScreen) {
-                    galleryThumbs.forEach((thumb) => {
-                      thumb.addEventListener("click", function () {
-                        const imgSrc = this.querySelector("img").src
-                        const imgAlt = this.querySelector("img").alt
-
-                        // Remove active class from all thumbs
-                        galleryThumbs.forEach((t) => t.classList.remove("active"))
-
-                        // Add active class to clicked thumb
-                        this.classList.add("active")
-
-                        // Update main screen
-                        mainScreen.style.opacity = "0"
-                        setTimeout(() => {
-                          mainScreen.src = imgSrc
-                          mainScreen.alt = imgAlt
-                          mainScreen.style.opacity = "1"
-                        }, 150)
-                      })
-                    })
-                  }
-                })()
-              });
-            </script>
-          </div>
-        </div>
-        <div class="home-container17">
-          <div class="home-container18">
-            <script defer="" data-name="stats-counter">
-              document.addEventListener('DOMContentLoaded', function() {
-                (function(){
-                  // Stats counter animation
-                  const statElements = document.querySelectorAll("[data-target]")
-
-                  function animateCounter(element) {
-                    const target = parseFloat(element.getAttribute("data-target"))
-                    const duration = 2000
-                    const increment = target / (duration / 16)
-                    let current = 0
-
-                    const updateCounter = () => {
-                      current += increment
-                      if (current < target) {
-                        element.textContent = Math.floor(current)
-                        requestAnimationFrame(updateCounter)
-                      } else {
-                        element.textContent = target
-                      }
-                    }
-
-                    updateCounter()
-                  }
-
-                  // Progress bar animation
-                  function animateProgressBar(element) {
-                    const targetWidth = element.getAttribute("data-target")
-                    if (targetWidth) {
-                      setTimeout(() => {
-                        element.style.width = targetWidth + "%"
-                      }, 300)
-                    }
-                  }
-
-                  // Intersection Observer for stats
-                  const statsObserver = new IntersectionObserver(
-                    (entries) => {
-                      entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                          const element = entry.target
-                          if (element.classList.contains("stat-card-progress-bar")) {
-                            animateProgressBar(element)
-                          } else {
-                            animateCounter(element)
-                          }
-                          statsObserver.unobserve(element)
-                        }
-                      })
-                    },
-                    { threshold: 0.5 }
-                  )
-
-                  statElements.forEach((element) => {
-                    statsObserver.observe(element)
-                  })
-
-                  // Also observe progress bars
-                  const progressBars = document.querySelectorAll(".stat-card-progress-bar")
-                  progressBars.forEach((bar) => {
-                    statsObserver.observe(bar)
-                  })
-                })()
-              });
-            </script>
-          </div>
-        </div>
-        <div class="home-container19">
-          <div class="home-container20">
-            <script defer="" data-name="demo-progress">
-              document.addEventListener('DOMContentLoaded', function() {
-                (function(){
-                  // How It Works demo progress animation
-                  const demoProgress = document.querySelector(".how-demo-progress-bar")
-
-                  if (demoProgress) {
-                    const progressStates = [33, 66, 100]
-                    let currentStep = 0
-
-                    setInterval(() => {
-                      currentStep = (currentStep + 1) % progressStates.length
-                      demoProgress.style.width = progressStates[currentStep] + "%"
-                    }, 3000)
-                  }
-                })()
-              });
-            </script>
-          </div>
-        </div>
-        <footer-wrapper class="footer-wrapper">
-          <!--Footer component-->
-          <div class="footer-container1">
-            <div class="footer-container2">
-              <div class="footer-container3">
-                <style>
-                  @media (prefers-reduced-motion: reduce) {
-                  .footer-scanlines, .footer-particle, .footer-logo-glow, .footer-divider-pulse {
-                    animation: none;
-                  }
-                  .footer-section *, .footer-section *::before, .footer-section *::after {
-                    transition-duration: 0.01ms !important;
-                    animation-duration: 0.01ms !important;
-                  }
-                  }
-                </style>
-              </div>
-            </div>
-            <footer id="footer-oopskit" class="footer-section">
-              <div aria-hidden="true" class="footer-grid-bg"></div>
-              <div aria-hidden="true" class="footer-scanlines"></div>
-              <div aria-hidden="true" class="footer-particles">
-                <div class="footer-particle"></div>
-                <div class="footer-particle"></div>
-                <div class="footer-particle"></div>
-                <div class="footer-particle"></div>
-                <div class="footer-particle"></div>
-                <div class="footer-particle"></div>
-              </div>
-              <div class="footer-container">
-                <div class="footer-content">
-                  <div class="footer-brand">
-                    <div class="footer-logo-wrapper">
-                      <div aria-hidden="true" class="footer-logo-glow"></div>
-                      <div class="footer-brand-icon">
-                        <svg
-                          width="24"
-                          xmlns="http://www.w3.org/2000/svg"
-                          height="24"
-                          viewBox="0 0 24 24"
-                        >
-                          <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path d="M12 6v6l4 2"></path>
-                            <circle r="10" cx="12" cy="12"></circle>
-                          </g>
+                <article class="problem-card">
+                    <div class="problem-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
                         </svg>
-                      </div>
-                      <h3 class="footer-brand-name">OopsKit</h3>
                     </div>
-                    <p class="footer-tagline">시간을 역산하는 준비 관리 앱</p>
-                    <p class="footer-description">
-                      도착 시각만 알려주세요. OopsKit이 준비 시작 시간을
-                      역산해드립니다.
+                    <h3 class="problem-card-title">시간 감각 흐트러짐</h3>
+                    <p class="problem-card-body">
+                        준비에 걸리는 시간이 일정하지 않아 약속 시간에 맞출 수 없나요?
+                        준비와 이동 시간을 따로 계산하느라 스트레스가 쌓입니다.
                     </p>
-                    <div class="footer-download-section">
-                      <a
-                        href="https://apps.apple.com/kr/app/oopskit/id6752884289"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                      >
-                        <div
-                          rel="noopener noreferrer"
-                          target="_blank"
-                          aria-label="App Store에서 다운로드"
-                          class="footer-store-badge"
-                        >
-                          <span
-                            aria-hidden="true"
-                            class="footer-badge-glow"
-                          ></span>
-                          <span class="footer-badge-content">
-                            <svg
-                              fill="currentColor"
-                              viewBox="0 0 24 24"
-                              aria-hidden="true"
-                              class="footer-footer-badge-icon1"
-                            >
-                              <path
-                                d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"
-                              ></path>
-                            </svg>
-                          </span>
-                          <span class="footer-badge-text">
-                            <span class="footer-footer-badge-small1">
-                              Download on the
-                            </span>
-                            <span class="footer-footer-badge-large1">
-                              App Store
-                            </span>
-                          </span>
-                        </div>
-                      </a>
-                      <a href="#">
-                        <div
-                          aria-label="Google Play에서 다운로드"
-                          class="footer-store-badge"
-                        >
-                          <span
-                            aria-hidden="true"
-                            class="footer-badge-glow"
-                          ></span>
-                          <span class="footer-badge-content">
-                            <svg
-                              fill="currentColor"
-                              viewBox="0 0 24 24"
-                              aria-hidden="true"
-                              class="footer-footer-badge-icon2"
-                            >
-                              <path
-                                d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"
-                              ></path>
-                            </svg>
-                          </span>
-                          <span class="footer-badge-text">
-                            <span class="footer-footer-badge-small2">
-                              GET IT ON
-                            </span>
-                            <span class="footer-footer-badge-large2">
-                              Google Play
-                            </span>
-                          </span>
-                        </div>
-                      </a>
+                    <span class="problem-card-label">반복되는 지각</span>
+                </article>
+                <article class="problem-card">
+                    <div class="problem-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9.615 20H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8m-3 5l2 2l4-4M9 8h4m-4 4h2"/>
+                        </svg>
                     </div>
-                  </div>
-                  <div class="footer-links-group">
-                    <div class="footer-links-column">
-                      <h4 class="footer-column-title">제품</h4>
-                      <ul class="footer-links-list">
-                        <li>
-                          <a href="#">
-                            <div class="footer-link">
-                              <span>주요 기능</span>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <div class="footer-link">
-                              <span>사용 방법</span>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <div class="footer-link"><span>업데이트</span></div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <div class="footer-link"><span>로드맵</span></div>
-                          </a>
-                        </li>
-                      </ul>
+                    <h3 class="problem-card-title">루틴 관리의 어려움</h3>
+                    <p class="problem-card-body">
+                        작은 단계 하나라도 놓치면 하루가 꼬인다고 느끼시나요? 복잡한
+                        루틴을 머릿속으로 관리하려다 보면 중요한 항목이 누락되기 쉽습니다.
+                    </p>
+                    <span class="problem-card-label">집중력 저하</span>
+                </article>
+                <article class="problem-card">
+                    <div class="problem-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 18V5m3 8a4.17 4.17 0 0 1-3-4a4.17 4.17 0 0 1-3 4"/>
+                        </svg>
                     </div>
-                    <div class="footer-links-column">
-                      <h4 class="footer-column-title">지원</h4>
-                      <ul class="footer-links-list">
-                        <li>
-                          <a href="#">
-                            <div class="footer-link">
-                              <span>도움말 센터</span>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <div class="footer-link">
-                              <span>사용 가이드</span>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <div class="footer-link"><span>FAQ</span></div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <div class="footer-link"><span>문의하기</span></div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="footer-links-column">
-                      <h4 class="footer-column-title">회사</h4>
-                      <ul class="footer-links-list">
-                        <li>
-                          <a href="#">
-                            <div class="footer-link"><span>소개</span></div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <div class="footer-link"><span>블로그</span></div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <div class="footer-link"><span>채용</span></div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <div class="footer-link"><span>파트너</span></div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="footer-contact">
-                    <h4 class="footer-column-title">문의</h4>
-                    <div class="footer-contact-items">
-                      <a href="mailto:support@oopskit.com?subject=">
-                        <div class="footer-contact-item">
-                          <span class="footer-contact-icon">
-                            <svg
-                              width="24"
-                              xmlns="http://www.w3.org/2000/svg"
-                              height="24"
-                              viewBox="0 0 24 24"
-                            >
-                              <g
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path
-                                  d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
-                                ></path>
-                                <rect
-                                  x="2"
-                                  y="4"
-                                  rx="2"
-                                  width="20"
-                                  height="16"
-                                ></rect>
-                              </g>
-                            </svg>
-                          </span>
-                          <span class="footer-contact-text">
-                            support@oopskit.com
-                          </span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="footer-social">
-                      <h5 class="footer-social-title">팔로우하기</h5>
-                      <div class="footer-social-links">
-                        <a href="#">
-                          <div
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            aria-label="Instagram"
-                            class="footer-social-link"
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="footer-social-glow"
-                            ></span>
-                            <svg
-                              width="24"
-                              xmlns="http://www.w3.org/2000/svg"
-                              height="24"
-                              viewBox="0 0 24 24"
-                            >
-                              <g
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <rect
-                                  x="2"
-                                  y="2"
-                                  rx="5"
-                                  ry="5"
-                                  width="20"
-                                  height="20"
-                                ></rect>
-                                <path
-                                  d="M16 11.37A4 4 0 1 1 12.63 8A4 4 0 0 1 16 11.37m1.5-4.87h.01"
-                                ></path>
-                              </g>
-                            </svg>
-                          </div>
-                        </a>
-                        <a href="#">
-                          <div
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            aria-label="Twitter"
-                            class="footer-social-link"
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="footer-social-glow"
-                            ></span>
-                            <svg
-                              width="24"
-                              xmlns="http://www.w3.org/2000/svg"
-                              height="24"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6c2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4c-.9-4.2 4-6.6 7-3.8c1.1 0 3-1.2 3-1.2"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              ></path>
-                            </svg>
-                          </div>
-                        </a>
-                        <a href="#">
-                          <div
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            aria-label="YouTube"
-                            class="footer-social-link"
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="footer-social-glow"
-                            ></span>
-                            <svg
-                              width="24"
-                              xmlns="http://www.w3.org/2000/svg"
-                              height="24"
-                              viewBox="0 0 24 24"
-                            >
-                              <g
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path
-                                  d="M2.5 17a24.1 24.1 0 0 1 0-10a2 2 0 0 1 1.4-1.4a49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.1 24.1 0 0 1 0 10a2 2 0 0 1-1.4 1.4a49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
-                                ></path>
-                                <path d="m10 15l5-3l-5-3z"></path>
-                              </g>
-                            </svg>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div aria-hidden="true" class="footer-divider">
-                  <div class="footer-divider-line"></div>
-                  <div class="footer-divider-pulse"></div>
-                </div>
-                <div class="footer-bottom">
-                  <div class="footer-bottom-content">
-                    <div class="footer-legal">
-                      <a href="#">
-                        <div class="footer-legal-link">
-                          <svg
-                            width="16"
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                          >
-                            <g
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path
-                                d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
-                              ></path>
-                              <path d="M14 2v5a1 1 0 0 0 1 1h5"></path>
-                            </g>
-                          </svg>
-                          <span>이용약관</span>
-                        </div>
-                      </a>
-                      <span aria-hidden="true" class="footer-legal-separator">
-                        |
-                      </span>
-                      <a href="#">
-                        <div class="footer-legal-link">
-                          <svg
-                            width="16"
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            ></path>
-                          </svg>
-                          <span>개인정보처리방침</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="footer-copyright">
-                      <p class="footer-copyright-text">
-                        © 2025 OopsKit. All rights reserved.
-                      </p>
-                    </div>
-                    <button
-                      id="footer-back-to-top-btn"
-                      aria-label="맨 위로 이동"
-                      class="footer-back-to-top"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="footer-footer-back-to-top-glow"
-                      ></span>
-                      <svg
-                        width="20"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="20"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="m5 12l7-7l7 7m-7 7V5"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        ></path>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </footer>
-            <div class="footer-container4">
-              <div class="footer-container5">
-                <style>
-                          @keyframes footer-scanline-move {0% {transform: translateY(0);}
-                  100% {transform: translateY(60px);}}@keyframes footer-particle-float {0%,100% {opacity: 0;
-                  transform: translateY(100%) scale(0.5);}
-                  10%,90% {opacity: 0.8;}
-                  50% {opacity: 1;
-                  transform: translateY(-100vh) scale(1);}}@keyframes footer-logo-pulse {0%,100% {opacity: 0.4;
-                  transform: scale(0.95);}
-                  50% {opacity: 0.8;
-                  transform: scale(1.05);}}@keyframes footer-divider-pulse-move {0%,100% {left: 0;
-                  opacity: 0;}
-                  10%,90% {opacity: 1;}
-                  50% {left: calc(100% - 200px);}}
-                </style>
-              </div>
+                    <h3 class="problem-card-title">ADHD 특성에 맞는 도구 부재</h3>
+                    <p class="problem-card-body">
+                        시간 감각이 흐트러지고, 어떤 일부터 먼저 해야 할지 막막해지며
+                        중요한 물건을 빼먹곤 합니다.
+                    </p>
+                    <span class="problem-card-label">불안과 스트레스</span>
+                </article>
             </div>
-            <div class="footer-container6">
-              <div class="footer-container7">
-                <script defer="" data-name="footer-oopskit">
-                  document.addEventListener('DOMContentLoaded', function() {
-                    (function(){
-                      // Back to Top Button Functionality
-                      const backToTopBtn = document.getElementById("footer-back-to-top-btn")
+        </div>
+    </section>
 
-                      if (backToTopBtn) {
-                        backToTopBtn.addEventListener("click", function () {
-                          window.scrollTo({
-                            top: 0,
-                            behavior: "smooth",
-                          })
-                        })
-
-                        // Show/hide button based on scroll position (for mobile fixed button)
-                        let scrollTimeout
-                        window.addEventListener(
-                          "scroll",
-                          function () {
-                            clearTimeout(scrollTimeout)
-
-                            if (window.innerWidth <= 767) {
-                              if (window.scrollY > 300) {
-                                backToTopBtn.style.opacity = "1"
-                                backToTopBtn.style.visibility = "visible"
-                              } else {
-                                backToTopBtn.style.opacity = "0"
-                                backToTopBtn.style.visibility = "hidden"
-                              }
-                            }
-                          },
-                          { passive: true }
-                        )
-                      }
-
-                      // Enhanced Link Tracking (optional)
-                      const footerLinks = document.querySelectorAll(
-                        ".footer-link, .footer-legal-link, .footer-social-link"
-                      )
-
-                      footerLinks.forEach((link) => {
-                        link.addEventListener("click", function (e) {
-                          const linkText =
-                            this.textContent.trim() || this.getAttribute("aria-label")
-                          console.log("Footer link clicked:", linkText)
-                        })
-                      })
-
-                      // Store Badge Click Tracking
-                      const storeBadges = document.querySelectorAll(".footer-store-badge")
-
-                      storeBadges.forEach((badge) => {
-                        badge.addEventListener("click", function (e) {
-                          const store = this.href.includes("apple") ? "App Store" : "Google Play"
-                          console.log("Download badge clicked:", store)
-                        })
-                      })
-                    })()
-                  });
-                </script>
-              </div>
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="features-container">
+            <h2 class="section-title">핵심 기능</h2>
+            
+            <div class="feature-row">
+                <div class="feature-content">
+                    <h3>역산 타임라인</h3>
+                    <p>
+                        도착 시각을 입력하면 역으로 계산한 준비 시작 시간과 단계별
+                        타임라인을 즉시 생성합니다. 실내 준비 시간과 이동 시간을 모두
+                        반영해 병원 예약·진료·약 복용 같은 일정에도 정확히 맞춥니다.
+                    </p>
+                </div>
+                <div class="feature-visual">
+                    <div class="feature-device">
+                        <img src="https://images.pexels.com/photos/8217475/pexels-photo-8217475.jpeg?auto=compress&cs=tinysrgb&w=1500" alt="Timeline Feature">
+                    </div>
+                </div>
             </div>
-          </div>
-        </footer-wrapper>
-      </div>
-      <link
-        rel="canonical"
-        href="https://suburban-oily-nightingale-tnmeo7.teleporthq.app/"
-      />
-    </div>
-  </body>
+
+            <div class="feature-row feature-row-reverse">
+                <div class="feature-content">
+                    <h3>맞춤형 루틴</h3>
+                    <p>
+                        사용자의 반복 패턴을 학습해 장소와 상황별 맞춤 루틴을 자동
+                        추천합니다. '병원 가기', '출근 준비' 등 자주 쓰는 준비세트를
+                        저장해 원터치로 불러올 수 있습니다.
+                    </p>
+                </div>
+                <div class="feature-visual">
+                    <div class="feature-device">
+                        <img src="https://images.pexels.com/photos/9558775/pexels-photo-9558775.jpeg?auto=compress&cs=tinysrgb&w=1500" alt="Custom Routine">
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-content">
+                    <h3>스마트 알림 & 실시간 가이드</h3>
+                    <p>
+                        각 단계별로 언제 무엇을 해야 하는지 음성·진동·배너로 직관적
+                        안내. ADHD 사용자를 배려한 간결한 문장과 시각 신호로 집중을
+                        돕고 무너진 흐름을 곧장 복구합니다.
+                    </p>
+                </div>
+                <div class="feature-visual">
+                    <div class="feature-device">
+                        <img src="https://images.pexels.com/photos/9558226/pexels-photo-9558226.jpeg?auto=compress&cs=tinysrgb&w=1500" alt="Smart Notifications">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <h2 class="section-title">실제 사용자의 목소리</h2>
+            <p class="section-subtitle">신뢰로 검증된 결과</p>
+            
+            <div class="testimonials-cards-primary">
+                <article class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <blockquote class="testimonial-quote">
+                        "ADHD 증상 때문에 매일 아침 전쟁이었는데, OopsKit 덕분에
+                        약속시간 95% 제시간 도착합니다. 준비 단계가 자동으로 표시되니
+                        놓치는 일이 줄었어요."
+                    </blockquote>
+                    <cite class="testimonial-attribution">익명, 30대</cite>
+                </article>
+                <article class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <blockquote class="testimonial-quote">
+                        "의사 약속, 면접, 등교까지. 도착 시각만 입력하면 준비 시작
+                        시간을 정확히 알려줘서 불안감이 확 줄었습니다."
+                    </blockquote>
+                    <cite class="testimonial-attribution">익명, 20대</cite>
+                </article>
+                <article class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <blockquote class="testimonial-quote">
+                        "매일 허둥대던 아침에서 여유 있는 출발로 바뀌었습니다."
+                    </blockquote>
+                    <cite class="testimonial-attribution">익명, 30대</cite>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards-section">
+        <div class="awards-container">
+            <h2 class="section-title">성과로 증명된 시간 혁신</h2>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon">👥</div>
+                    <h3>1,234+</h3>
+                    <p>활성 사용자</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">🎯</div>
+                    <h3>78%</h3>
+                    <p>평균 제시간 도착률</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">⭐</div>
+                    <h3>4.8/5.0</h3>
+                    <p>앱스토어 평점</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download-section">
+        <div class="download-container">
+            <h2 class="section-title">Download</h2>
+            <div class="download-badges">
+                <a href="https://apps.apple.com/kr/app/oopskit/id6752884289" target="_blank" class="download-badge">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <div>
+                        <div class="badge-small">Download on the</div>
+                        <div class="badge-large">App Store</div>
+                    </div>
+                </a>
+                <a href="#" target="_blank" class="download-badge">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+                    </svg>
+                    <div>
+                        <div class="badge-small">GET IT ON</div>
+                        <div class="badge-large">Google Play</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-brand-name">OopsKit</h3>
+                    <p class="footer-tagline">시간을 역산하는 준비 관리 앱</p>
+                </div>
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">제품</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#" class="footer-link">주요 기능</a></li>
+                        <li><a href="#" class="footer-link">사용 방법</a></li>
+                        <li><a href="#" class="footer-link">업데이트</a></li>
+                        <li><a href="#" class="footer-link">로드맵</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">지원</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#" class="footer-link">도움말 센터</a></li>
+                        <li><a href="#" class="footer-link">사용 가이드</a></li>
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                        <li><a href="#" class="footer-link">문의하기</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">Legal</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#" class="footer-link">이용약관</a></li>
+                        <li><a href="#" class="footer-link">개인정보처리방침</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 OopsKit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
