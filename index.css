@@ -113,6 +113,11 @@ body {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
+  color: var(--color-primary);
+}
+
+.navigation-toggle svg {
+  color: var(--color-primary);
 }
 
 /* Hero Section */
